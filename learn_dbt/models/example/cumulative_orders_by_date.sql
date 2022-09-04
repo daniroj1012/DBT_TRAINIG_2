@@ -1,0 +1,8 @@
+{{ config(materialized='table') }}
+
+SELECT
+   O_ORDERDATE AS DATE,
+   O_TOTALPRICE AS PRICE,
+   SUM(O_TOTALPRICE)  OVER (partition by DATE order by PRICE) CUMULATIVE
+  FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS
+  order by DATE,PRICE
