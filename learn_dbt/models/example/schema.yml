@@ -9,7 +9,8 @@ models:
         description: "The primary key for this table"
         tests:
           - unique
-          - not_null
+          
+         
 
   - name: my_second_dbt_model
     description: "A starter dbt model"
@@ -19,6 +20,9 @@ models:
         tests:
           - unique
           - not_null
+          - relationships: 
+              to: ref('my_first_dbt_model') 
+              field: id
 
   - name: snowflake_customer_purchase
     description: "Transformation example"
@@ -35,5 +39,7 @@ models:
       - name: O_ORDERDATE
         description: "The primary key for this table"
         tests:
-          - unique
-          - not_null
+         
+  - name: dates
+  - name: incremental_time
+   

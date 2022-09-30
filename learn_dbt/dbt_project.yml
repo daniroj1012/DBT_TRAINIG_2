@@ -35,4 +35,8 @@ models:
   learn_dbt:
     # Config indicated by + and applies to all files under models/example/
     example:
-      +materialized: view
+      materialized: view
+      variables:
+        my_first_variable: True
+        my_second_variable: 2020
+        my_third_variable: 1
